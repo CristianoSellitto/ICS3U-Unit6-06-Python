@@ -105,17 +105,17 @@ def convert_string_to_hex(string):
         "~": "0x7e",
     }
 
-    counter_check = 0 # Counter to keep track of the number of loops
-    formatted_text = "[" # Default formatting text
+    counter_check = 0
+    formatted_text = "["
     for character in string:
         if character in dictionary.keys() and not counter_check == len(string) - 1:
-            formatted_text += "'" + dictionary[character] + "', " # Formatting for non-ending text
+            formatted_text += "'" + dictionary[character] + "', "
         elif character in dictionary.keys() and counter_check == len(string) - 1:
-            formatted_text += "'" + dictionary[character] + "']" # Formatting for ending text
+            formatted_text += "'" + dictionary[character] + "']"
         elif not counter_check == len(string) - 1:
-            formatted_text += "'INVALID', " # Formatting for non-ending invalid text
+            formatted_text += "'INVALID', "
         else:
-            formatted_text += "'INVALID']" # Formatting for ending invalid text
+            formatted_text += "'INVALID']"
         counter_check += 1
 
     return formatted_text
